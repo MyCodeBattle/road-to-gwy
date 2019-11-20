@@ -1,0 +1,329 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>4.1 误差分析 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="4.2计算.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Part IV：资料分析
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="2.1.1" data-path="误差分析.html">
+            
+                <a href="误差分析.html">
+            
+                    
+                    4.1 误差分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="4.2计算.html">
+            
+                <a href="4.2计算.html">
+            
+                    
+                    4.2 计算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="有趣的题.html">
+            
+                <a href="有趣的题.html">
+            
+                    
+                    4.3 有趣的题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >4.1 误差分析</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x4E00;&#x3001;&#x8BEF;&#x5DEE;&#x5206;&#x6790;">&#x4E00;&#x3001;&#x8BEF;&#x5DEE;&#x5206;&#x6790;</h1>
+<p>&#x8BEF;&#x5DEE;&#x5206;&#x6790;&#x662F;&#x6574;&#x4E2A;&#x8D44;&#x6599;&#x5206;&#x6790;&#x7684;&#x6838;&#x5FC3;&#xFF0C;<strong>&#x6240;&#x6709;&#x7684;&#x8BA1;&#x7B97;</strong>&#x90FD;&#x5EFA;&#x7ACB;&#x5728;&#x8BEF;&#x5DEE;&#x5206;&#x6790;&#x4E4B;&#x4E0A;&#x3002;</p>
+<p>&#x7B80;&#x5355;&#x5730;&#x8BF4;&#xFF0C;&#x8BEF;&#x5DEE;&#x5206;&#x6790;&#x5C31;&#x662F;&#x8BA9;&#x4F60;&#x5224;&#x65AD;&#x8FD9;&#x9898;&#x8BA1;&#x7B97;&#x7528;&#x7684;&#x6570;&#x5B57;&#xFF0C;&#x662F;&#x622A;&#x53D6;&#x5230;&#x4E24;&#x4F4D;&#x3001;&#x4E09;&#x4F4D;&#x8FD8;&#x662F;&#x56DB;&#x4F4D;&#x3002;&#xFF08;&#x5F53;&#x7136;&#x9700;&#x8981;&#x622A;&#x53D6;&#x56DB;&#x4F4D;&#x8BA1;&#x7B97;&#x7684;&#x9898;&#x76EE;&#x6BD4;&#x8F83;&#x5C11;&#xFF0C;&#x4F46;&#x4E5F;&#x4E0D;&#x662F;&#x6CA1;&#x6709;</p>
+<h2 id="&#x601D;&#x8DEF;">&#x601D;&#x8DEF;</h2>
+<p>&#x5148;&#x8BF4;&#x601D;&#x8DEF;&#x3002;</p>
+<p>&#x8BEF;&#x5DEE;&#x5206;&#x6790;&#x90E8;&#x5206;&#x603B;&#x4F53;&#x7684;&#x601D;&#x8DEF;&#x662F;&#x8FD9;&#x6837;&#xFF1A;</p>
+<ol>
+<li>&#x627E;&#x5DEE;&#x8DDD;&#x6700;&#x5C0F;&#x7684;&#x4E24;&#x4E2A;&#x9009;&#x9879;&#x3002;</li>
+<li>&#x8BA1;&#x7B97;&#x4ED6;&#x4EEC;&#x7684;&#x76F8;&#x5BF9;&#x5DEE;&#x8DDD;&#x3002;</li>
+<li>&#x6839;&#x636E;&#x5DEE;&#x8DDD;&#x786E;&#x5B9A;&#x672C;&#x9898;&#x7684;&#x6570;&#x5B57;&#x7CBE;&#x5EA6;&#x3002;</li>
+</ol>
+<p>&#x4E0B;&#x9762;&#x5F00;&#x59CB;&#x8BE6;&#x7EC6;&#x8BF4;&#x660E;&#x5404;&#x4E2A;&#x90E8;&#x5206;&#x8BE5;&#x5E72;&#x4EC0;&#x4E48;&#x3002;</p>
+<p>&#x9996;&#x5148;&#xFF0C;&#x62FF;&#x5230;&#x9898;&#x76EE;&#x4EE5;&#x540E;&#xFF0C;<strong>&#x7B2C;&#x4E00;&#x773C;&#x5148;&#x770B;&#x9009;&#x9879;&#xFF01;&#x7B2C;&#x4E00;&#x773C;&#x5148;&#x770B;&#x9009;&#x9879;&#xFF01;&#xFF01;&#x7B2C;&#x4E00;&#x773C;&#x5148;&#x770B;&#x9009;&#x9879;&#xFF01;&#xFF01;&#xFF01;</strong>&#x56E0;&#x4E3A;&#x5F88;&#x91CD;&#x8981;&#x6240;&#x4EE5;&#x8BF4;&#x4E09;&#x6B21;&#x3002;</p>
+<h3 id="&#x627E;&#x5DEE;&#x8DDD;&#x6700;&#x5C0F;&#x7684;&#x4E24;&#x4E2A;&#x9009;&#x9879;">&#x627E;&#x5DEE;&#x8DDD;&#x6700;&#x5C0F;&#x7684;&#x4E24;&#x4E2A;&#x9009;&#x9879;</h3>
+<p>&#x8FD9;&#x6B65;&#x662F;&#x4E3A;&#x4E86;&#x4F7F;&#x6211;&#x4EEC;&#x4F30;&#x7B97;&#x51FA;&#x6765;&#x7684;&#x7ED3;&#x679C;&#x4E0D;&#x81F3;&#x4E8E;&#x4ECE;&#x6B63;&#x786E;&#x9009;&#x9879;&#x504F;&#x5DEE;&#x5230;&#x4E86;&#x9519;&#x8BEF;&#x9009;&#x9879;&#x4E0A;&#x53BB;&#x3002;&#x4E3A;&#x4EC0;&#x4E48;&#x9009;&#x62E9;&#x5DEE;&#x8DDD;&#x6700;&#x5C0F;&#x7684;&#x9009;&#x9879;&#x4E0D;&#x7528;&#x591A;&#x8BF4;&#x5427;&#xFF1F;</p>
+<p>&#x6BD4;&#x5982;&#x8BF4;&#x6709;&#x56DB;&#x4E2A;&#x9009;&#x9879;&#xFF0C;&#x5206;&#x522B;&#x4E3A;&#xFF1A;</p>
+<blockquote>
+<p>A.10    B.15    C.30    D.50</p>
+</blockquote>
+<p>&#x6839;&#x636E;&#x76EE;&#x6D4B;&#x6CD5;&#xFF0C;&#x6211;&#x4EEC;&#x80FD;&#x786E;&#x5B9A;&#x76F8;&#x5DEE;&#x6700;&#x5C11;&#x7684;&#x4E24;&#x4E2A;&#x9009;&#x9879;&#x662F;A&#x548C;B&#xFF08;&#x5DEE;15&#xFF09;&#x3002;</p>
+<p>&#x6709;&#x65F6;&#x5019;&#x9009;&#x9879;&#x662F;&#x5206;&#x6570;&#xFF0C;&#x8FD9;&#x4E5F;&#x6CA1;&#x4E8B;&#xFF0C;&#x628A;&#x767E;&#x5206;&#x53F7;&#x53BB;&#x6389;&#x6309;&#x7167;&#x6574;&#x6570;&#x7B97;&#x5C31;&#x884C;&#x3002;</p>
+<h3 id="&#x8BA1;&#x7B97;&#x76F8;&#x5BF9;&#x5DEE;&#x8DDD;">&#x8BA1;&#x7B97;&#x76F8;&#x5BF9;&#x5DEE;&#x8DDD;</h3>
+<p>&#x8FD9;&#x6B65;&#x91CC;&#x6211;&#x4EEC;&#x8981;&#x7B97;&#x51FA;&#x8FD9;&#x4E24;&#x4E2A;&#x9009;&#x9879;&#x5DEE;&#x4E86;&#x591A;&#x5C11;&#x767E;&#x5206;&#x6BD4;&#x3002;&#x7B97;&#x6CD5;&#x4E3A;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mstyle mathsize="1.2em"><mtext><mi mathvariant="normal">&#x76F8;</mi><mi mathvariant="normal">&#x5BF9;</mi><mi mathvariant="normal">&#x5DEE;</mi><mi mathvariant="normal">&#x8DDD;</mi></mtext><mo>=</mo><mfrac><mrow><mtext><mi mathvariant="normal">&#x4E24;</mi><mi mathvariant="normal">&#x6570;</mi><mi mathvariant="normal">&#x4E4B;</mi><mi mathvariant="normal">&#x5DEE;</mi></mtext></mrow><mrow><mtext><mi mathvariant="normal">&#x5C0F;</mi><mi mathvariant="normal">&#x4E00;</mi><mi mathvariant="normal">&#x70B9;</mi><mi mathvariant="normal">&#x7684;</mi><mi mathvariant="normal">&#x6570;</mi></mtext></mrow></mfrac></mstyle></mrow><annotation encoding="application/x-tex">\large \text{&#x76F8;&#x5BF9;&#x5DEE;&#x8DDD;}=\frac{\text{&#x4E24;&#x6570;&#x4E4B;&#x5DEE;}}{\text{&#x5C0F;&#x4E00;&#x70B9;&#x7684;&#x6570;}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.0467971999999999em;"></span><span class="strut bottom" style="height:1.4607971999999998em;vertical-align:-0.414em;"></span><span class="base textstyle uncramped"><span class="mord text textstyle uncramped sizing reset-size5 size6 textstyle uncramped"><span class="mord mathrm cjk_fallback">&#x76F8;&#x5BF9;&#x5DEE;&#x8DDD;</span></span><span class="mrel sizing reset-size5 size6 textstyle uncramped">=</span><span class="mord reset-textstyle textstyle uncramped sizing reset-size5 size6 textstyle uncramped"><span class="mopen sizing reset-size6 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size6 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord text scriptstyle cramped mtight"><span class="mord mathrm cjk_fallback mtight">&#x5C0F;&#x4E00;&#x70B9;&#x7684;&#x6570;</span></span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size6 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size6 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord text scriptstyle uncramped mtight"><span class="mord mathrm cjk_fallback mtight">&#x4E24;&#x6570;&#x4E4B;&#x5DEE;</span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size6 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size6 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span>&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x8BA1;&#x7B97;&#x4E00;&#x4E0B;&#x4E0A;&#x9898;&#xFF0C;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mstyle mathsize="1.2em"><mi>a</mi><mi>n</mi><mi>s</mi><mo>=</mo><mfrac><mrow><mn>1</mn><mn>5</mn><mo>&#x2212;</mo><mn>1</mn><mn>0</mn></mrow><mrow><mn>1</mn><mn>0</mn></mrow></mfrac><mo>=</mo><mn>5</mn><mn>0</mn><mi mathvariant="normal">%</mi></mstyle></mrow><annotation encoding="application/x-tex">\large ans = \frac{15-10}{10} = 50\%</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.0141296em;"></span><span class="strut bottom" style="height:1.4281295999999999em;vertical-align:-0.414em;"></span><span class="base textstyle uncramped"><span class="mord mathit sizing reset-size5 size6 textstyle uncramped">a</span><span class="mord mathit sizing reset-size5 size6 textstyle uncramped">n</span><span class="mord mathit sizing reset-size5 size6 textstyle uncramped">s</span><span class="mrel sizing reset-size5 size6 textstyle uncramped">=</span><span class="mord reset-textstyle textstyle uncramped sizing reset-size5 size6 textstyle uncramped"><span class="mopen sizing reset-size6 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size6 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathrm mtight">1</span><span class="mord mathrm mtight">0</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size6 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size6 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathrm mtight">1</span><span class="mord mathrm mtight">5</span><span class="mbin mtight">&#x2212;</span><span class="mord mathrm mtight">1</span><span class="mord mathrm mtight">0</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size6 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size6 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mrel sizing reset-size5 size6 textstyle uncramped">=</span><span class="mord mathrm sizing reset-size5 size6 textstyle uncramped">5</span><span class="mord mathrm sizing reset-size5 size6 textstyle uncramped">0</span><span class="mord mathrm sizing reset-size5 size6 textstyle uncramped">%</span></span></span></span> &#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x9898;&#x7684;&#x76F8;&#x5BF9;&#x5DEE;&#x8DDD;&#x4E3A;50%&#x3002;</p>
+<h3 id="&#x786E;&#x5B9A;&#x7CBE;&#x5EA6;">&#x786E;&#x5B9A;&#x7CBE;&#x5EA6;</h3>
+<ul>
+<li>&#x76F8;&#x5BF9;&#x5DEE;&#x8DDD;&#x5728;10%&#x4EE5;&#x4E0A;&#xFF0C;&#x8BA1;&#x7B97;&#x65F6;&#x5168;&#x90E8;&#x56DB;&#x820D;&#x4E94;&#x5165;<strong>&#x53D6;&#x4E24;&#x4F4D;</strong>&#x8BA1;&#x7B97;</li>
+<li>&#x76F8;&#x5BF9;&#x5DEE;&#x8DDD;&#x5728;1%-10%&#xFF0C;&#x8BA1;&#x7B97;&#x65F6;&#x5168;&#x90E8;&#x56DB;&#x820D;&#x4E94;&#x5165;<strong>&#x53D6;&#x4E09;&#x4F4D;</strong>&#x8BA1;&#x7B97;&#x3002;</li>
+<li>&#x76F8;&#x5BF9;&#x5DEE;&#x8DDD;&#x5C0F;&#x4E8E;1%&#xFF0C;&#x8BA1;&#x7B97;&#x65F6;&#x5168;&#x90E8;&#x56DB;&#x820D;&#x4E94;&#x5165;<strong>&#x53D6;&#x56DB;&#x4F4D;</strong>&#x8BA1;&#x7B97;&#xFF0C;&#x4E0D;&#x8FC7;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x5F88;&#x5C11;&#x5F88;&#x5C11;&#xFF0C;&#x5370;&#x8C61;&#x4E2D;&#x53EA;&#x6709;&#x4E00;&#x9898;&#x3002;</li>
+</ul>
+<p>&#x5177;&#x4F53;&#x4E3A;&#x4EC0;&#x4E48;&#x8FD9;&#x4E48;&#x53D6;&#x6709;&#x5174;&#x8DA3;&#x7684;&#x53EF;&#x4EE5;&#x770B;&#x540E;&#x6587;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Part IV：资料分析">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="4.2计算.html" class="navigation navigation-next " aria-label="Next page: 4.2 计算">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"4.1 误差分析","level":"2.1.1","depth":2,"next":{"title":"4.2 计算","level":"2.1.2","depth":2,"path":"资料分析/4.2计算.md","ref":"资料分析/4.2计算.md","articles":[]},"previous":{"title":"Part IV：资料分析","level":"2.1","depth":1,"path":"资料分析/README.md","ref":"资料分析/README.md","articles":[{"title":"4.1 误差分析","level":"2.1.1","depth":2,"path":"资料分析/误差分析.md","ref":"资料分析/误差分析.md","articles":[]},{"title":"4.2 计算","level":"2.1.2","depth":2,"path":"资料分析/4.2计算.md","ref":"资料分析/4.2计算.md","articles":[]},{"title":"4.3 有趣的题","level":"2.1.3","depth":2,"path":"资料分析/有趣的题.md","ref":"资料分析/有趣的题.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex"],"pluginsConfig":{"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"资料分析/误差分析.md","mtime":"2019-11-11T11:44:18.229Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-12T06:53:07.002Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
